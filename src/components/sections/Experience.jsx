@@ -42,7 +42,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,12 +60,12 @@ const Experience = () => {
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative">
+        <div className="relative overflow-hidden">
           {/* Vertical Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-100 dark:bg-indigo-900/30 rounded-full"></div>
 
           {/* Experience Items */}
-          <div className="relative z-10">
+          <div className="relative z-10 px-4 md:px-0">
             {experiences.map((exp, index) => (
               <TimelineItem key={exp.id} experience={exp} index={index} isLast={index === experiences.length - 1} />
             ))}
@@ -95,13 +95,13 @@ const TimelineItem = ({ experience, index, isLast }) => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-full overflow-x-hidden">
         <motion.div
           initial={{ opacity: 0, x: isEven ? -50 : 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
-          className={`bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg ${isEven ? 'md:text-right md:col-start-1' : 'md:col-start-2'}`}
+          className={`bg-white dark:bg-slate-800 p-4 md:p-6 rounded-xl shadow-lg ${isEven ? 'md:text-right md:col-start-1' : 'md:col-start-2'} w-full`}
         >
           <div className="mb-1 text-indigo-600 dark:text-indigo-400 font-medium font-inter">{experience.duration}</div>
           <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-1 font-poppins">{experience.role}</h3>
@@ -112,13 +112,13 @@ const TimelineItem = ({ experience, index, isLast }) => {
             <h4 className="text-md font-semibold text-slate-800 dark:text-white mb-2 font-poppins">Key Achievements:</h4>
             <ul className={`space-y-2 ${isEven ? 'md:list-inside' : ''}`}>
               {experience.achievements.map((achievement, i) => (
-                <li key={i} className="text-slate-600 dark:text-slate-300 font-inter flex items-start">
-                  <span className="inline-block w-5 h-5 mr-2 text-indigo-500 flex-shrink-0">
+                <li key={i} className="text-slate-600 dark:text-slate-300 font-inter flex items-start text-sm md:text-base">
+                  <span className="inline-block w-4 h-4 md:w-5 md:h-5 mr-2 text-indigo-500 flex-shrink-0">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </span>
-                  <span>{achievement}</span>
+                  <span className="break-words">{achievement}</span>
                 </li>
               ))}
             </ul>

@@ -145,7 +145,7 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-20 bg-slate-50 dark:bg-slate-800/50 relative overflow-hidden">
       <PortfolioAnimation />
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -193,6 +193,11 @@ const Portfolio = () => {
 const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
   
+  // Function to handle touch events for mobile
+  const handleTouch = () => {
+    setIsHovered(!isHovered);
+  };
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -202,6 +207,7 @@ const ProjectCard = ({ project, index }) => {
       className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTouch}
     >
       {/* Project Image */}
       <div className="relative overflow-hidden">
@@ -213,9 +219,9 @@ const ProjectCard = ({ project, index }) => {
         
         {/* Overlay */}
         <div 
-          className={`absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-cyan-600/70 flex flex-col justify-end p-6 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-cyan-600/70 flex flex-col justify-end p-4 md:p-6 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0 md:opacity-0'}`}
         >
-          <div className="flex space-x-3 mb-4">
+          <div className="flex flex-col sm:flex-row sm:space-x-3 space-y-2 sm:space-y-0 mb-4">
             <a 
               href={project.demoUrl} 
               target="_blank" 
@@ -245,9 +251,9 @@ const ProjectCard = ({ project, index }) => {
       </div>
       
       {/* Project Info */}
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 font-poppins">{project.title}</h3>
-        <p className="text-slate-600 dark:text-slate-300 mb-4 font-inter text-sm">{project.description}</p>
+      <div className="p-4 md:p-6">
+        <h3 className="text-lg md:text-xl font-bold text-slate-800 dark:text-white mb-2 font-poppins line-clamp-1">{project.title}</h3>
+        <p className="text-slate-600 dark:text-slate-300 mb-4 font-inter text-xs md:text-sm line-clamp-3">{project.description}</p>
         
         {/* Technologies */}
         <div className="flex flex-wrap gap-2">

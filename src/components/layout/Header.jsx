@@ -30,20 +30,20 @@ const Header = () => {
   };
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    // { name: 'Skills', path: '/skills' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Experience', path: '/experience' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', path: '/', section: 'home' },
+    { name: 'About', path: '/#about', section: 'about' },
+    // { name: 'Skills', path: '/#skills', section: 'skills' },
+    { name: 'Portfolio', path: '/#portfolio', section: 'portfolio' },
+    { name: 'Experience', path: '/#experience', section: 'experience' },
+    { name: 'Testimonials', path: '/#testimonials', section: 'testimonials' },
+    { name: 'Contact', path: '/#contact', section: 'contact' },
   ];
 
   return (
     <header 
-      className={`fixed w-full h-20 flex  z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}
+      className={`fixed w-full py-6 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}
     >
-      <div className="container mx-auto px-6 py-5 flex justify-between items-center">
+      <div className="container mx-auto px-6 py-6 md:py-7 flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <motion.div 
@@ -57,7 +57,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-4">
           {navLinks.map((link, index) => (
             <motion.div
               key={link.name}
@@ -67,9 +67,22 @@ const Header = () => {
             >
               <Link 
                 to={link.path} 
-                className="font-inter text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors px-2 py-1 rounded-md"
+                className="font-inter text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors px-3 py-2 rounded-md relative group"
+                onClick={(e) => {
+                  if (link.section) {
+                    e.preventDefault();
+                    const element = document.getElementById(link.section);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                      setIsMobileMenuOpen(false);
+                    }
+                  }
+                }}
               >
-                {link.name}
+                <span className="relative">
+                  {link.name}
+                  <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 group-hover:w-full transition-all duration-300"></span>
+                </span>
               </Link>
             </motion.div>
           ))}
@@ -81,8 +94,15 @@ const Header = () => {
             transition={{ duration: 0.3, delay: navLinks.length * 0.1 }}
           >
             <Link 
-              to="/contact" 
+              to="/#contact" 
               className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-all duration-300 font-inter mr-4"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Hire Me
             </Link>
@@ -138,24 +158,49 @@ const Header = () => {
           transition={{ duration: 0.3 }}
           className="md:hidden bg-white dark:bg-slate-900 shadow-lg"
         >
-          <div className="container mx-auto px-4 py-4">
+          <div className="container mx-auto px-4 py-4 max-w-7xl">
             <nav className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <Link 
                   key={link.name}
                   to={link.path} 
-                  className="font-inter text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="font-inter text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors py-2 px-2 rounded-md relative group inline-block"
+                  onClick={(e) => {
+                    if (link.section) {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      setTimeout(() => {
+                        const element = document.getElementById(link.section);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }, 300);
+                    } else {
+                      setIsMobileMenuOpen(false);
+                    }
+                  }}
                 >
-                  {link.name}
+                  <span className="relative">
+                    {link.name}
+                    <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 group-hover:w-full transition-all duration-300"></span>
+                  </span>
                 </Link>
               ))}
               
               {/* Hire Me Button (Mobile) */}
               <Link 
-                to="/contact" 
+                to="/#contact" 
                 className="font-inter bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg text-center transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    const element = document.getElementById('contact');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 300);
+                }}
               >
                 Hire Me
               </Link>

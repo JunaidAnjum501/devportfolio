@@ -59,7 +59,7 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="py-20 bg-slate-50 dark:bg-slate-800/50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -161,7 +161,7 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg h-full flex flex-col">
+    <div className="bg-white dark:bg-slate-800 p-4 md:p-6 rounded-xl shadow-lg h-full flex flex-col">
       {/* Rating Stars */}
       <div className="flex mb-4">
         {[...Array(5)].map((_, i) => (
@@ -178,7 +178,7 @@ const TestimonialCard = ({ testimonial }) => {
 
       {/* Testimonial Content */}
       <div className="mb-6 flex-grow">
-        <p className="text-slate-600 dark:text-slate-300 italic font-inter">"{testimonial.content}"</p>
+        <p className="text-slate-600 dark:text-slate-300 italic font-inter text-sm md:text-base">"{testimonial.content}"</p>
       </div>
 
       {/* Client Info */}
@@ -186,11 +186,11 @@ const TestimonialCard = ({ testimonial }) => {
         <img 
           src={testimonial.image} 
           alt={testimonial.name} 
-          className="w-12 h-12 rounded-full object-cover mr-4"
+          className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover mr-3 md:mr-4"
         />
         <div>
-          <h4 className="font-semibold text-slate-800 dark:text-white font-poppins">{testimonial.name}</h4>
-          <p className="text-slate-500 dark:text-slate-400 text-sm font-inter">{testimonial.role}</p>
+          <h4 className="font-semibold text-slate-800 dark:text-white font-poppins text-sm md:text-base">{testimonial.name}</h4>
+          <p className="text-slate-500 dark:text-slate-400 text-xs md:text-sm font-inter">{testimonial.role}</p>
         </div>
       </div>
     </div>

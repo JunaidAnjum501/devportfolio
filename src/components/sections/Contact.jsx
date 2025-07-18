@@ -83,7 +83,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-white dark:bg-slate-900">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,8 +109,8 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="lg:w-1/3"
           >
-            <div className="bg-slate-50 dark:bg-slate-800 p-8 rounded-xl shadow-lg h-full">
-              <h3 className="text-2xl font-semibold text-slate-800 dark:text-white mb-6 font-poppins">
+            <div className="bg-slate-50 dark:bg-slate-800 p-4 md:p-8 rounded-xl shadow-lg h-full">
+              <h3 className="text-xl md:text-2xl font-semibold text-slate-800 dark:text-white mb-4 md:mb-6 font-poppins">
                 Contact Information
               </h3>
 
@@ -123,8 +123,8 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-slate-700 dark:text-slate-200 font-poppins">Email</h4>
-                    <a href="mailto:your.email@example.com" className="text-indigo-600 dark:text-indigo-400 hover:underline font-inter">your.email@example.com</a>
+                    <h4 className="text-base md:text-lg font-medium text-slate-700 dark:text-slate-200 font-poppins">Email</h4>
+                    <a href="mailto:your.email@example.com" className="text-sm md:text-base text-indigo-600 dark:text-indigo-400 hover:underline font-inter break-all">your.email@example.com</a>
                   </div>
                 </div>
 
@@ -137,8 +137,8 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-slate-700 dark:text-slate-200 font-poppins">Location</h4>
-                    <p className="text-slate-600 dark:text-slate-300 font-inter">San Francisco, CA, United States</p>
+                    <h4 className="text-base md:text-lg font-medium text-slate-700 dark:text-slate-200 font-poppins">Location</h4>
+                    <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 font-inter">San Francisco, CA, United States</p>
                   </div>
                 </div>
 
@@ -150,16 +150,16 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-slate-700 dark:text-slate-200 font-poppins">Availability</h4>
-                    <p className="text-slate-600 dark:text-slate-300 font-inter">Monday - Friday, 9AM - 6PM PST</p>
+                    <h4 className="text-base md:text-lg font-medium text-slate-700 dark:text-slate-200 font-poppins">Availability</h4>
+                    <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 font-inter">Monday - Friday, 9AM - 6PM PST</p>
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
               <div className="mt-10">
-                <h4 className="text-lg font-medium text-slate-700 dark:text-slate-200 mb-4 font-poppins">Connect With Me</h4>
-                <div className="flex space-x-4">
+                <h4 className="text-base md:text-lg font-medium text-slate-700 dark:text-slate-200 mb-3 md:mb-4 font-poppins">Connect With Me</h4>
+                <div className="flex flex-wrap gap-2 md:gap-4">
                   {/* LinkedIn */}
                   <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-slate-200 dark:bg-slate-700 p-3 rounded-full hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors duration-300">
                     <svg className="w-5 h-5 text-slate-700 dark:text-slate-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -189,21 +189,21 @@ const Contact = () => {
 
               {/* Freelance Badges */}
               <div className="mt-10">
-                <h4 className="text-lg font-medium text-slate-700 dark:text-slate-200 mb-4 font-poppins">Find Me On</h4>
-                <div className="flex space-x-4">
+                <h4 className="text-base md:text-lg font-medium text-slate-700 dark:text-slate-200 mb-3 md:mb-4 font-poppins">Find Me On</h4>
+                <div className="flex flex-wrap gap-2 md:gap-4">
                   {/* Fiverr Badge */}
                   <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer" className="flex items-center bg-[#1DBF73] text-white px-4 py-2 rounded-lg hover:bg-[#19a463] transition-colors duration-300">
                     <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path d="M23 9.5h-2.5V7c0-1.1-.9-2-2-2h-2.5V2.5c0-.8-.7-1.5-1.5-1.5h-4c-.8 0-1.5.7-1.5 1.5V5H6.5c-1.1 0-2 .9-2 2v2.5H2c-.6 0-1 .4-1 1v4c0 .6.4 1 1 1h2.5v2.5c0 1.1.9 2 2 2h2.5v2.5c0 .8.7 1.5 1.5 1.5h4c.8 0 1.5-.7 1.5-1.5V20H18c1.1 0 2-.9 2-2v-2.5H22.5c.8 0 1.5-.7 1.5-1.5v-3c0-.8-.7-1.5-1.5-1.5H23zM13.5 16h-3c-.8 0-1.5-.7-1.5-1.5v-5c0-.8.7-1.5 1.5-1.5h3c.8 0 1.5.7 1.5 1.5v5c0 .8-.7 1.5-1.5 1.5z" />
                     </svg>
-                    <span className="font-medium font-poppins">Fiverr</span>
+                    <span className="text-sm md:text-base font-medium font-poppins">Fiverr</span>
                   </a>
                   {/* Upwork Badge */}
                   <a href="https://upwork.com" target="_blank" rel="noopener noreferrer" className="flex items-center bg-[#6FDA44] text-white px-4 py-2 rounded-lg hover:bg-[#5ec236] transition-colors duration-300">
                     <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
                     </svg>
-                    <span className="font-medium font-poppins">Upwork</span>
+                    <span className="text-sm md:text-base font-medium font-poppins">Upwork</span>
                   </a>
                 </div>
               </div>
@@ -218,8 +218,8 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="lg:w-2/3"
           >
-            <div className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-semibold text-slate-800 dark:text-white mb-6 font-poppins">
+            <div className="bg-white dark:bg-slate-800 p-4 md:p-8 rounded-xl shadow-lg">
+              <h3 className="text-xl md:text-2xl font-semibold text-slate-800 dark:text-white mb-4 md:mb-6 font-poppins">
                 Send Me a Message
               </h3>
 

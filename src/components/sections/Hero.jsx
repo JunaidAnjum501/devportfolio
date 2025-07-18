@@ -48,7 +48,7 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="container mx-auto px-4 z-10 py-20 md:py-0">
+      <div className="container mx-auto px-4 z-10 py-20 md:py-0 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -72,29 +72,37 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link 
-                  to="/contact" 
+                <a 
+                  href="#contact" 
                   className="inline-block px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 font-inter"
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   Let's Work Together
                   <span className="ml-2 inline-block transition-transform duration-300 transform group-hover:translate-x-1">
                     →
                   </span>
-                </Link>
+                </a>
               </motion.div>
               
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link 
-                  to="/portfolio" 
+                <a 
+                  href="#portfolio" 
                   className="inline-block px-8 py-4 bg-transparent border-2 border-slate-300 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-500 text-slate-800 dark:text-white font-medium rounded-lg transition-all duration-300 font-inter"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   View My Work
-                </Link>
+                </a>
               </motion.div>
             </div>
             
